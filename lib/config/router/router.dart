@@ -3,19 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
-import 'package:movie_app/features/screens/authorization/confirm_email/view/confirm_email.dart';
-import 'package:movie_app/features/screens/authorization/signup/view/signup_screen.dart';
+import 'package:movie_app/features/screens/authorization/confirm_email_for_signup/view/confirm_email.dart';
 import 'package:movie_app/features/screens/authorization/login/view/login_screen.dart';
+import 'package:movie_app/features/screens/authorization/reset_password/view/create_new_password_screen.dart';
+import 'package:movie_app/features/screens/authorization/reset_password/view/reset_password_screen.dart';
+import 'package:movie_app/features/screens/authorization/reset_password/view/verification_reset_password_screen.dart';
+import 'package:movie_app/features/screens/authorization/signup/view/signup_screen.dart';
 import 'package:movie_app/features/screens/dashboard/view/dashboard_screen.dart';
+
+import 'router_name.dart';
 
 class AppRouter {
   final AppBloc authBloc;
   AppRouter({required this.authBloc});
-
-  static String nameLoginScreen = 'login';
-  static String nameDasboardScreen = 'dasboard';
-  static String nameSignUpScreen = 'signup';
-  static String nameConfirmEmailScreen = 'confirm_email';
 
   late final GoRouter router = GoRouter(
     initialLocation: '/dasboard',
@@ -23,25 +23,43 @@ class AppRouter {
     routes: [
       GoRoute(
         path: '/login',
-        name: nameLoginScreen,
+        name: AppNameRouter.loginScreen,
         builder: (BuildContext contex, GoRouterState state) => LoginnScreen(),
       ),
       GoRoute(
+        path: '/create_new_password',
+        name: AppNameRouter.createNewPasswordScreen,
+        builder: (BuildContext contex, GoRouterState state) =>
+            const CreateNewPasswordScreen(),
+      ),
+      GoRoute(
+        path: '/reset_password',
+        name: AppNameRouter.resetPasswordScreen,
+        builder: (BuildContext contex, GoRouterState state) =>
+            ReserPasswordScreen(),
+      ),
+      GoRoute(
         path: '/dasboard',
-        name: nameDasboardScreen,
+        name: AppNameRouter.dasboardScreen,
         builder: (BuildContext contex, GoRouterState state) =>
             const DashboardScreen(),
       ),
       GoRoute(
         path: '/signup',
-        name: nameSignUpScreen,
+        name: AppNameRouter.signUpScreen,
         builder: (BuildContext contex, GoRouterState state) => SignUpScreen(),
       ),
       GoRoute(
-        path: '/confirm_email',
-        name: nameConfirmEmailScreen,
+        path: '/verification_reset_password',
+        name: AppNameRouter.verificationResetPasswordlScreen,
         builder: (BuildContext contex, GoRouterState state) =>
-            const ConfirmEmailScreen(),
+            const VerificationResetPasswordScreen(),
+      ),
+      GoRoute(
+        path: '/verification_signup',
+        name: AppNameRouter.verificationSignUplScreen,
+        builder: (BuildContext contex, GoRouterState state) =>
+            const VerificationSignUplScreen(),
       ),
     ],
     redirect: (BuildContext context, GoRouterState state) {

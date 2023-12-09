@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'login_cubit.dart';
 
 enum LoginStatus { initial, submitting, succes, error }
@@ -22,9 +21,6 @@ class LoginState extends Equatable {
     );
   }
 
-  @override
-  List<Object> get props => [email, password, status];
-
   LoginState copyWith({
     String? email,
     String? password,
@@ -36,4 +32,7 @@ class LoginState extends Equatable {
       status: status ?? this.status,
     );
   }
+
+  @override
+  List<Object> get props => [email, password, status];
 }

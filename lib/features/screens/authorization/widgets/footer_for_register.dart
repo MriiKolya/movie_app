@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movie_app/config/router/router_name.dart';
 import 'package:movie_app/core/widgets/auth_by_socialmedia.dart';
+import 'package:movie_app/features/constant/constant.dart';
 
 class FooterForRegister extends StatelessWidget {
   const FooterForRegister({super.key, required this.constraints});
@@ -8,36 +11,56 @@ class FooterForRegister extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: constraints.maxHeight / 40),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AuthBySocialMedia(
-            constraints: constraints,
-            icon: Icons.g_mobiledata,
-            onTap: () {},
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            context.go(context.namedLocation(AppNameRouter.loginScreen));
+          },
+          child: RichText(
+              text: TextSpan(children: [
+            TextSpan(
+                text: 'Already have account ?',
+                style: Theme.of(context).textTheme.labelSmall),
+            const TextSpan(text: ' '),
+            TextSpan(
+                text: ' Log in',
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: secondPrimaryColor, fontWeight: FontWeight.bold))
+          ])),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: constraints.maxHeight / 40),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AuthBySocialMedia(
+                constraints: constraints,
+                icon: Icons.g_mobiledata,
+                onTap: () {},
+              ),
+              SizedBox(
+                width: constraints.maxWidth / 20,
+                height: constraints.maxHeight / 10,
+              ),
+              AuthBySocialMedia(
+                constraints: constraints,
+                icon: Icons.facebook,
+                onTap: () {},
+              ),
+              SizedBox(
+                width: constraints.maxWidth / 20,
+                height: constraints.maxHeight / 10,
+              ),
+              AuthBySocialMedia(
+                constraints: constraints,
+                icon: Icons.apple,
+                onTap: () {},
+              ),
+            ],
           ),
-          SizedBox(
-            width: constraints.maxWidth / 20,
-            height: constraints.maxHeight / 10,
-          ),
-          AuthBySocialMedia(
-            constraints: constraints,
-            icon: Icons.facebook,
-            onTap: () {},
-          ),
-          SizedBox(
-            width: constraints.maxWidth / 20,
-            height: constraints.maxHeight / 10,
-          ),
-          AuthBySocialMedia(
-            constraints: constraints,
-            icon: Icons.apple,
-            onTap: () {},
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

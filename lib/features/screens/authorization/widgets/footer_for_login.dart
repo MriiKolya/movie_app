@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router.dart';
+import 'package:movie_app/config/router/router_name.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
 import 'package:movie_app/features/constant/constant.dart';
 import 'package:movie_app/features/repositories/auth_repository.dart';
@@ -63,7 +63,7 @@ class FooterForLogin extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          context.go(context.namedLocation(AppRouter.nameSignUpScreen));
+          context.go(context.namedLocation(AppNameRouter.signUpScreen));
         },
         child: RichText(
             text: TextSpan(children: [

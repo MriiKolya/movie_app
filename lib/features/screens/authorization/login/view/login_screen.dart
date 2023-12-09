@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router.dart';
+import 'package:movie_app/config/router/router_name.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';
 import 'package:movie_app/core/value_objects/value_objects.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
@@ -18,7 +18,7 @@ class LoginnScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Form(
         key: _formKey,
-        child: TemplateScreen(
+        child: TemplateForm(
           title: 'Welcome Back',
           subTitle: 'Hello there Log in to continue',
           constraints: constraints,
@@ -41,10 +41,15 @@ class LoginnScreen extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.centerRight,
-              child: Text(
-                'Forgot password ?',
-                style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    fontWeight: FontWeight.w100, color: Colors.grey.shade300),
+              child: TextButton(
+                onPressed: () {
+                  context.go(
+                      context.namedLocation(AppNameRouter.resetPasswordScreen));
+                },
+                child: Text('Forgot password ?',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        fontWeight: FontWeight.w100,
+                        color: Colors.grey.shade300)),
               ),
             ),
             const Spacer(),
@@ -58,7 +63,7 @@ class LoginnScreen extends StatelessWidget {
                 listener: (context, state) {
                   if (state.status == LoginStatus.succes) {
                     context.go(
-                        context.namedLocation(AppRouter.nameDasboardScreen));
+                        context.namedLocation(AppNameRouter.dasboardScreen));
                   } else if (state.status == LoginStatus.error) {
                     showDialog(
                         context: context,

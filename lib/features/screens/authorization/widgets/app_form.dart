@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/constant/constant.dart';
 
-class TemplateScreen extends StatelessWidget {
-  TemplateScreen(
+class TemplateForm extends StatelessWidget {
+  TemplateForm(
       {super.key,
       this.title,
       this.subTitle,

@@ -51,19 +51,25 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
   }
 
   @override
-  Future<void> confirmOtp(
-      {required String email, required String token}) async {
+  Future<void> confirmOtp({
+    required String email,
+    required String token,
+    required OtpType type,
+  }) async {
     await _supabase.auth.verifyOTP(
       token: token,
-      type: OtpType.signup,
+      type: type,
       email: email,
     );
   }
 
   @override
-  Future<void> reSendOtp({required String email}) async {
+  Future<void> reSendOtp({
+    required String email,
+    required OtpType type,
+  }) async {
     await _supabase.auth.resend(
-      type: OtpType.signup,
+      type: type,
       email: email,
     );
   }
@@ -138,4 +144,9 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
 
   @override
   Future<void> onSignOut() async => await _supabase.auth.signOut();
+
+  @override
+  Future<void> resetPassword({required String email}) async {
+    _supabase.auth.resetPasswordForEmail(email);
+  }
 }

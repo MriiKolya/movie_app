@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router.dart';
+import 'package:movie_app/config/router/router_name.dart';
 import 'package:movie_app/core/value_objects/value_objects.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
-import 'package:movie_app/features/constant/constant.dart';
 import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit.dart';
 import 'package:movie_app/features/screens/authorization/widgets/widgets.dart';
 
@@ -19,7 +18,7 @@ class SignUpScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Form(
         key: _formKey,
-        child: TemplateScreen(
+        child: TemplateForm(
             title: 'Hi, Welcome',
             subTitle: 'Hello there sign up to continue',
             constraints: constraints,
@@ -64,8 +63,8 @@ class SignUpScreen extends StatelessWidget {
                   },
                   listener: (BuildContext context, SignupState state) {
                     if (state.status == SignUpStatus.succes) {
-                      context.go(context
-                          .namedLocation(AppRouter.nameConfirmEmailScreen));
+                      context.go(context.namedLocation(
+                          AppNameRouter.verificationSignUplScreen));
                     } else if (state.status == SignUpStatus.error) {
                       showDialog(
                           context: context,
@@ -80,23 +79,6 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  context.go(context.namedLocation(AppRouter.nameLoginScreen));
-                },
-                child: RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: 'Already have account ?',
-                      style: Theme.of(context).textTheme.labelSmall),
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                      text: ' Log in',
-                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          color: secondPrimaryColor,
-                          fontWeight: FontWeight.bold))
-                ])),
-              ),
               FooterForRegister(constraints: constraints)
             ]),
       );

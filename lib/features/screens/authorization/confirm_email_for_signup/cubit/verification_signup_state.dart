@@ -1,4 +1,4 @@
-part of 'verification_cubit.dart';
+part of 'verification_signup_cubit.dart';
 
 enum VerificationStatus { initial, succes, error, submitting }
 

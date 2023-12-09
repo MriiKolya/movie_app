@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router.dart';
+import 'package:movie_app/config/router/export_router.dart';
 import 'package:movie_app/core/widgets/alert_dialog_error.dart';
 import 'package:movie_app/core/widgets/pinput_email.dart';
-import 'package:movie_app/features/constant/constant.dart';
-import 'package:movie_app/features/screens/authorization/confirm_email/cubit/verification_cubit.dart';
+import 'package:movie_app/features/screens/authorization/confirm_email_for_signup/cubit/verification_signup_cubit.dart';
 import 'package:movie_app/features/screens/authorization/widgets/app_form.dart';
 import 'package:movie_app/features/screens/authorization/widgets/footer_for_register.dart';
 
-class ConfirmEmailScreen extends StatelessWidget {
-  const ConfirmEmailScreen({super.key});
+class VerificationSignUplScreen extends StatelessWidget {
+  const VerificationSignUplScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return TemplateScreen(
+      return TemplateForm(
           title: 'Verification',
           subTitle: 'Enter the code sent to your email',
           subAdd: context.read<VerificationCubit>().signupCubit.state.email,
@@ -66,7 +65,7 @@ class ConfirmEmailScreen extends StatelessWidget {
                 listener: (BuildContext context, VerificationState state) {
                   if (state.status == VerificationStatus.succes) {
                     context.go(
-                        context.namedLocation(AppRouter.nameDasboardScreen));
+                        context.namedLocation(AppNameRouter.dasboardScreen));
                   } else if (state.status == VerificationStatus.error) {
                     showDialog(
                         context: context,
@@ -81,22 +80,6 @@ class ConfirmEmailScreen extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            GestureDetector(
-              onTap: () {
-                context.go(context.namedLocation(AppRouter.nameLoginScreen));
-              },
-              child: RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: 'Already have account ?',
-                    style: Theme.of(context).textTheme.labelSmall),
-                const TextSpan(text: ' '),
-                TextSpan(
-                    text: ' Log in',
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: secondPrimaryColor, fontWeight: FontWeight.bold))
-              ])),
-            ),
             FooterForRegister(constraints: constraints)
           ]);
     });
