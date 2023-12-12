@@ -19,7 +19,7 @@ class ReserPasswordScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Form(
         key: _formKey,
-        child: TemplateForm(
+        child: AppForm(
           title: 'Reset Password',
           subTitle: 'Enter your account email',
           constraints: constraints,

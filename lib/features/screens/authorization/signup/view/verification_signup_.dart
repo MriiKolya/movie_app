@@ -15,7 +15,7 @@ class VerificationSignUplScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return TemplateForm(
+      return AppForm(
           title: 'Verification',
           subTitle: 'Enter the code sent to your email',
           subAdd:
@@ -72,6 +72,11 @@ class VerificationSignUplScreen extends StatelessWidget {
                   } else if (state.status == VerificationStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: 'Incorect code',
+                      context: context,
+                    );
+                  } else if (state.status == VerificationStatus.succes) {
+                    SnackBarMessage.showSnackBarSucces(
+                      message: '${state.email} has been registered',
                       context: context,
                     );
                   }

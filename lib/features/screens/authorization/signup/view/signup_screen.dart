@@ -18,7 +18,7 @@ class SignUpScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Form(
         key: _formKey,
-        child: TemplateForm(
+        child: AppForm(
             title: 'Hi, Welcome',
             subTitle: 'Hello there sign up to continue',
             constraints: constraints,

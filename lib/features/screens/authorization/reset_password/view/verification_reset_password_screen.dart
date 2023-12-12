@@ -16,7 +16,7 @@ class VerificationResetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      return TemplateForm(
+      return AppForm(
           title: 'Verification',
           subTitle: 'Enter the code sent to your email',
           subAdd: context

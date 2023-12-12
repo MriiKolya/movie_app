@@ -18,7 +18,7 @@ class LoginnScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Form(
         key: _formKey,
-        child: TemplateForm(
+        child: AppForm(
           backButton: false,
           title: 'Welcome Back',
           subTitle: 'Hello there Log in to continue',

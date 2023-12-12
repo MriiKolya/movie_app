@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/constant/constant.dart';
 
-class TemplateForm extends StatelessWidget {
-  TemplateForm(
+class AppForm extends StatelessWidget {
+  AppForm(
       {super.key,
       this.title,
       this.subTitle,

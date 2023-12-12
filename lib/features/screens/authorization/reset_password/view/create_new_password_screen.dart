@@ -20,7 +20,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       return Form(
         key: _formKey,
-        child: TemplateForm(
+        child: AppForm(
             title: 'Hello',
             subTitle: 'now enter a new password for your account',
             subAdd: context
@@ -71,6 +71,10 @@ class CreateNewPasswordScreen extends StatelessWidget {
                   listener:
                       (BuildContext context, CreateNewPasswordState state) {
                     if (state.status == CreateNewPasswordStatus.succes) {
+                      SnackBarMessage.showSnackBarSucces(
+                        message: 'the password has been successfully changed',
+                        context: context,
+                      );
                       context
                           .go(context.namedLocation(AppNameRouter.loginScreen));
                     } else if (state.status == CreateNewPasswordStatus.error) {

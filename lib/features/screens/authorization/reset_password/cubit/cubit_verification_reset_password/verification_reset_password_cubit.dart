@@ -33,11 +33,12 @@ class VerificationResetPasswordCubit
         token: state.token,
         type: OtpType.recovery,
       );
-
       emit(state.copyWith(status: VerificationResetPasswordStatus.succes));
-    } on AuthException {
+    } on AuthException catch (e) {
+      debugPrint(e.toString());
       emit(state.copyWith(status: VerificationResetPasswordStatus.error));
     } catch (e) {
+      debugPrint(e.toString());
       emit(state.copyWith(status: VerificationResetPasswordStatus.error));
     }
   }

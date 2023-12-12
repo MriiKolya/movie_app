@@ -8,7 +8,7 @@ import 'package:movie_app/features/screens/authorization/reset_password/view/cre
 import 'package:movie_app/features/screens/authorization/reset_password/view/reset_password_screen.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/view/verification_reset_password_screen.dart';
 import 'package:movie_app/features/screens/authorization/signup/view/signup_screen.dart';
-import 'package:movie_app/features/screens/authorization/verification_signup/view/verification_signup_.dart';
+import 'package:movie_app/features/screens/authorization/signup/view/verification_signup_.dart';
 import 'package:movie_app/features/screens/dashboard/view/dashboard_screen.dart';
 
 import 'router_name.dart';

@@ -8,6 +8,7 @@ abstract class SnackBarMessage {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        elevation: 0,
         backgroundColor: Colors.transparent,
         content: Container(
           padding: const EdgeInsets.all(16),
@@ -61,6 +62,7 @@ abstract class SnackBarMessage {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        elevation: 0,
         backgroundColor: Colors.transparent,
         content: Container(
           padding: const EdgeInsets.all(16),
