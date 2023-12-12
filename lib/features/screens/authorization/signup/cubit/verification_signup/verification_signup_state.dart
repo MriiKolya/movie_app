@@ -4,20 +4,20 @@ enum VerificationStatus { initial, succes, error, submitting }
 
 enum CodeStatus { initial, codesend }
 
-class VerificationState extends Equatable {
+class VerificationSignUpState extends Equatable {
   final String email;
   final String token;
   final VerificationStatus status;
   final CodeStatus codeStatus;
-  const VerificationState({
+  const VerificationSignUpState({
     required this.email,
     required this.token,
     required this.status,
     required this.codeStatus,
   });
 
-  factory VerificationState.initial() {
-    return const VerificationState(
+  factory VerificationSignUpState.initial() {
+    return const VerificationSignUpState(
       email: '',
       token: '',
       codeStatus: CodeStatus.initial,
@@ -25,13 +25,13 @@ class VerificationState extends Equatable {
     );
   }
 
-  VerificationState copyWith({
+  VerificationSignUpState copyWith({
     String? email,
     String? token,
     VerificationStatus? status,
     CodeStatus? codeStatus,
   }) {
-    return VerificationState(
+    return VerificationSignUpState(
       codeStatus: codeStatus ?? this.codeStatus,
       email: email ?? this.email,
       token: token ?? this.token,

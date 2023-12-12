@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_app/features/constant/constant.dart';
 
 class TemplateForm extends StatelessWidget {
@@ -6,6 +7,7 @@ class TemplateForm extends StatelessWidget {
       {super.key,
       this.title,
       this.subTitle,
+      this.backButton = true,
       required this.children,
       required this.constraints,
       this.subAdd});
@@ -16,6 +18,7 @@ class TemplateForm extends StatelessWidget {
   final String? subAdd;
   final List<Widget> children;
   final BoxConstraints constraints;
+  final bool backButton;
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +33,41 @@ class TemplateForm extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Spacer(),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        title != null
-                            ? Text(
-                                title!,
-                                style: Theme.of(context).textTheme.titleLarge,
-                              )
-                            : const SizedBox(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            backButton == true
+                                ? Align(
+                                    alignment: Alignment.topLeft,
+                                    child: IconButton(
+                                      icon: const Icon(
+                                        Icons.arrow_back_ios,
+                                        size: 30,
+                                        color: primaryColor,
+                                      ),
+                                      onPressed: () {
+                                        GoRouter.of(context).pop();
+                                      },
+                                    ),
+                                  )
+                                : const SizedBox(),
+                            title != null
+                                ? Text(
+                                    title!,
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
+                                  )
+                                : const SizedBox(),
+                          ],
+                        ),
                         subTitle != null
                             ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Text(
                                     subTitle!,
@@ -56,7 +79,8 @@ class TemplateForm extends StatelessWidget {
                                           subAdd!,
                                           style: Theme.of(context)
                                               .textTheme
-                                              .labelMedium?.copyWith(color: primaryColor),
+                                              .labelMedium
+                                              ?.copyWith(color: primaryColor),
                                         )
                                       : const SizedBox(),
                                 ],

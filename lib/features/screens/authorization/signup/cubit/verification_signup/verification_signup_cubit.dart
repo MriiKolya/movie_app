@@ -2,20 +2,21 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/features/repositories/auth_repository.dart';
+import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit/signup_cubit.dart';
 
-import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'verification_signup_state.dart';
 
-class VerificationCubit extends Cubit<VerificationState> {
+class VerificationSignUpCubit extends Cubit<VerificationSignUpState> {
   final AuthRepository _repository;
   final SignupCubit signupCubit;
 
-  VerificationCubit(
-    this._repository,
-    this.signupCubit,
-  ) : super(VerificationState.initial());
+  VerificationSignUpCubit({
+    required AuthRepository repository,
+    required this.signupCubit,
+  })  : _repository = repository,
+        super(VerificationSignUpState.initial());
 
   void tokenChanged(String value) {
     emit(state.copyWith(token: value, status: VerificationStatus.initial));

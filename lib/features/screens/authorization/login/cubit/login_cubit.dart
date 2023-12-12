@@ -28,6 +28,7 @@ class LoginCubit extends Cubit<LoginState> {
       );
       emit(state.copyWith(status: LoginStatus.succes));
     } on AuthException catch (e) {
+      emit(state.copyWith(status: LoginStatus.error));
       debugPrint(e.toString());
     } catch (e) {
       debugPrint(e.toString());

@@ -74,14 +74,14 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
     );
   }
 
-  @override
-  Future<void> onResetPassword({
-    required String email,
-  }) async {
-    await _supabase.auth.signInWithOtp(
-      email: email,
-    );
-  }
+  // @override
+  // Future<void> onResetPassword({
+  //   required String email,
+  // }) async {
+  //   await _supabase.auth.signInWithOtp(
+  //     email: email,
+  //   );
+  // }
 
   @override
   Future<void> onSignWithApple() async {
@@ -146,7 +146,14 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
   Future<void> onSignOut() async => await _supabase.auth.signOut();
 
   @override
-  Future<void> resetPassword({required String email}) async {
-    _supabase.auth.resetPasswordForEmail(email);
+  Future<void> onResetPassword({required String email}) async {
+    await _supabase.auth.resetPasswordForEmail(email);
+  }
+
+  @override
+  Future<void> onUpdateUser(
+      {required String email, required String password}) async {
+    await _supabase.auth
+        .updateUser(UserAttributes(email: email, password: password));
   }
 }

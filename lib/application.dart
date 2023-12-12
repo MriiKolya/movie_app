@@ -4,10 +4,12 @@ import 'package:get_it/get_it.dart';
 import 'package:movie_app/config/router/router.dart';
 import 'package:movie_app/config/themes/dart_theme.dart';
 import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
-import 'package:movie_app/features/screens/authorization/confirm_email_for_signup/cubit/verification_signup_cubit.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';
+import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_create_new_password/create_new_password_cubit.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_reset_password/reset_password_cubit.dart';
-import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit.dart';
+import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_verification_reset_password/verification_reset_password_cubit.dart';
+import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit/signup_cubit.dart';
+import 'package:movie_app/features/screens/authorization/signup/cubit/verification_signup/verification_signup_cubit.dart';
 
 import 'features/repositories/auth_repository.dart';
 
@@ -28,12 +30,21 @@ class _ApplicationState extends State<Application> {
       providers: [
         BlocProvider<LoginCubit>(
             create: (context) => LoginCubit(GetIt.I<AuthRepository>())),
+        BlocProvider<CreateNewPasswordCubit>(
+            create: (context) => CreateNewPasswordCubit(
+                repository: GetIt.I<AuthRepository>(),
+                resetPasswordCubit: resetPasswordCubit)),
         BlocProvider<ResetPasswordCubit>(
             create: (context) => resetPasswordCubit),
         BlocProvider<SignupCubit>(create: (context) => signupCubit),
-        BlocProvider<VerificationCubit>(
-            create: (context) =>
-                VerificationCubit(GetIt.I<AuthRepository>(), signupCubit)),
+        BlocProvider<VerificationSignUpCubit>(
+            create: (context) => VerificationSignUpCubit(
+                repository: GetIt.I<AuthRepository>(),
+                signupCubit: signupCubit)),
+        BlocProvider<VerificationResetPasswordCubit>(
+            create: (context) => VerificationResetPasswordCubit(
+                repository: GetIt.I<AuthRepository>(),
+                resetPasswordCubit: resetPasswordCubit)),
         BlocProvider(create: (context) => AppBloc(GetIt.I<AuthRepository>()))
       ],
       child: Builder(builder: (context) {

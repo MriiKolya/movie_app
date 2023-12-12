@@ -6,6 +6,7 @@ ThemeData dartTheme() => ThemeData(
     brightness: Brightness.dark,
     primaryColor: primaryColor,
     outlinedButtonTheme: const OutlinedButtonThemeData(),
+
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: TextButton.styleFrom(
           shape:

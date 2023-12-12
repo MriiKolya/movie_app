@@ -37,19 +37,17 @@ class ReserPasswordScreen extends StatelessWidget {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   context.read<ResetPasswordCubit>().resetPassword();
-                  context.go(context.namedLocation(
+                  context.push(context.namedLocation(
                       AppNameRouter.verificationResetPasswordlScreen));
                 }
               },
               child: BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
                 listener: (context, state) {
                   if (state.status == ResetPasswordStatus.error) {
-                    showDialog(
-                        context: context,
-                        builder: (context) => const AllertDialogError(
-                            title: 'Incorect Data',
-                            subtitle: 'Нour email has no account',
-                            textButton: 'ok'));
+                    SnackBarMessage.showSnackBarException(
+                      message: 'Нour email has no account',
+                      context: context,
+                    );
                   }
                 },
                 builder: (context, state) {

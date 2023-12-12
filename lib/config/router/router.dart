@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
-import 'package:movie_app/features/screens/authorization/confirm_email_for_signup/view/confirm_email.dart';
 import 'package:movie_app/features/screens/authorization/login/view/login_screen.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/view/create_new_password_screen.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/view/reset_password_screen.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/view/verification_reset_password_screen.dart';
 import 'package:movie_app/features/screens/authorization/signup/view/signup_screen.dart';
+import 'package:movie_app/features/screens/authorization/verification_signup/view/verification_signup_.dart';
 import 'package:movie_app/features/screens/dashboard/view/dashboard_screen.dart';
 
 import 'router_name.dart';

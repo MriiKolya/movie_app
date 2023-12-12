@@ -20,7 +20,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
     if (state.status == ResetPasswordStatus.submitting) return;
     emit(state.copyWith(status: ResetPasswordStatus.submitting));
     try {
-      await _repository.resetPassword(
+      await _repository.onResetPassword(
         email: state.email,
       );
       emit(state.copyWith(status: ResetPasswordStatus.succes));

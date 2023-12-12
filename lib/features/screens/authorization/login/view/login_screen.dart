@@ -19,6 +19,7 @@ class LoginnScreen extends StatelessWidget {
       return Form(
         key: _formKey,
         child: TemplateForm(
+          backButton: false,
           title: 'Welcome Back',
           subTitle: 'Hello there Log in to continue',
           constraints: constraints,
@@ -39,17 +40,18 @@ class LoginnScreen extends StatelessWidget {
               },
               constraints: constraints,
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  context.go(
-                      context.namedLocation(AppNameRouter.resetPasswordScreen));
-                },
+            TextButton(
+              onPressed: () {
+                context.push(
+                    context.namedLocation(AppNameRouter.resetPasswordScreen));
+              },
+              child: Align(
+                alignment: Alignment.centerRight,
                 child: Text('Forgot password ?',
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        fontWeight: FontWeight.w100,
-                        color: Colors.grey.shade300)),
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.w300,
+                        color: Colors.grey.shade300,
+                        fontSize: 16)),
               ),
             ),
             const Spacer(),
@@ -62,17 +64,17 @@ class LoginnScreen extends StatelessWidget {
               child: BlocConsumer<LoginCubit, LoginState>(
                 listener: (context, state) {
                   if (state.status == LoginStatus.succes) {
+                    SnackBarMessage.showSnackBarSucces(
+                      message: 'Welcome ${state.email}',
+                      context: context,
+                    );
                     context.go(
                         context.namedLocation(AppNameRouter.dasboardScreen));
                   } else if (state.status == LoginStatus.error) {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) =>
-                            const AllertDialogError(
-                              title: 'Incorrect Data',
-                              subtitle: 'Wrong email or password',
-                              textButton: 'ok',
-                            ));
+                    SnackBarMessage.showSnackBarException(
+                      message: 'Wrong email or password',
+                      context: context,
+                    );
                   }
                 },
                 builder: (BuildContext context, LoginState state) {

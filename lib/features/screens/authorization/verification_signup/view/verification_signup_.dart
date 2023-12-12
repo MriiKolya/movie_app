@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/config/router/export_router.dart';
-import 'package:movie_app/core/widgets/alert_dialog_error.dart';
+import 'package:movie_app/core/widgets/snack_bar_message.dart';
 import 'package:movie_app/core/widgets/pinput_email.dart';
-import 'package:movie_app/features/screens/authorization/confirm_email_for_signup/cubit/verification_signup_cubit.dart';
+import 'package:movie_app/features/screens/authorization/signup/cubit/verification_signup/verification_signup_cubit.dart';
 import 'package:movie_app/features/screens/authorization/widgets/app_form.dart';
 import 'package:movie_app/features/screens/authorization/widgets/footer_for_register.dart';
 
-class ConfirmEmailScreen extends StatelessWidget {
-  const ConfirmEmailScreen({super.key});
+class VerificationSignUplScreen extends StatelessWidget {
+  const VerificationSignUplScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +18,23 @@ class ConfirmEmailScreen extends StatelessWidget {
       return TemplateForm(
           title: 'Verification',
           subTitle: 'Enter the code sent to your email',
-          subAdd: context.read<VerificationCubit>().signupCubit.state.email,
+          subAdd:
+              context.read<VerificationSignUpCubit>().signupCubit.state.email,
           constraints: constraints,
           children: [
             const Spacer(),
             EmailPinPut(
               onChanged: (token) {
-                context.read<VerificationCubit>().tokenChanged(token);
+                context.read<VerificationSignUpCubit>().tokenChanged(token);
               },
               onCompleted: (token) {
-                context.read<VerificationCubit>().confirmOtp();
+                context.read<VerificationSignUpCubit>().confirmOtp();
               },
             ),
             const Spacer(),
             SizedBox(
-              child: BlocConsumer<VerificationCubit, VerificationState>(
+              child: BlocConsumer<VerificationSignUpCubit,
+                  VerificationSignUpState>(
                 builder: (context, state) {
                   if (state.codeStatus == CodeStatus.codesend) {
                     return Text(
@@ -47,7 +49,7 @@ class ConfirmEmailScreen extends StatelessWidget {
                   } else if (state.codeStatus == CodeStatus.initial) {
                     return TextButton(
                       onPressed: () {
-                        context.read<VerificationCubit>().reSendOtp();
+                        context.read<VerificationSignUpCubit>().reSendOtp();
                       },
                       child: Text(
                         'send the code again',
@@ -62,19 +64,16 @@ class ConfirmEmailScreen extends StatelessWidget {
                   }
                   return const SizedBox();
                 },
-                listener: (BuildContext context, VerificationState state) {
+                listener:
+                    (BuildContext context, VerificationSignUpState state) {
                   if (state.status == VerificationStatus.succes) {
                     context.go(
                         context.namedLocation(AppNameRouter.dasboardScreen));
                   } else if (state.status == VerificationStatus.error) {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) =>
-                            const AllertDialogError(
-                              title: 'Incorect code',
-                              subtitle: 'Please enter the correct code',
-                              textButton: 'Try again',
-                            ));
+                    SnackBarMessage.showSnackBarException(
+                      message: 'Incorect code',
+                      context: context,
+                    );
                   }
                 },
               ),

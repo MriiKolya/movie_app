@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_app/config/router/router_name.dart';
 import 'package:movie_app/core/value_objects/value_objects.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
-import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit.dart';
+import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit/signup_cubit.dart';
 import 'package:movie_app/features/screens/authorization/widgets/widgets.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -53,30 +53,29 @@ class SignUpScreen extends StatelessWidget {
                   }
                 },
                 child: BlocConsumer<SignupCubit, SignupState>(
-                  builder: (context, state) {
-                    if (state.status == SignUpStatus.submitting) {
-                      return const CircularProgressIndicator();
-                    }
-                    return const Text(
-                      'Sign Up',
+                    builder: (context, state) {
+                  if (state.status == SignUpStatus.submitting) {
+                    return const CircularProgressIndicator();
+                  }
+                  return const Text(
+                    'Sign Up',
+                  );
+                }, listener: (BuildContext context, SignupState state) {
+                  if (state.status == SignUpStatus.succes) {
+                    context.push(context.namedLocation(
+                        AppNameRouter.verificationSignUplScreen));
+                  } else if (state.status == SignUpStatus.error) {
+                    SnackBarMessage.showSnackBarException(
+                      message: ' Something went wrong \n Try again later.',
+                      context: context,
                     );
-                  },
-                  listener: (BuildContext context, SignupState state) {
-                    if (state.status == SignUpStatus.succes) {
-                      context.go(context.namedLocation(
-                          AppNameRouter.verificationSignUplScreen));
-                    } else if (state.status == SignUpStatus.error) {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) =>
-                              const AllertDialogError(
-                                title: 'Something went wrong',
-                                subtitle: 'Try again later.',
-                                textButton: 'ok',
-                              ));
-                    }
-                  },
-                ),
+                  } else if (state.status == SignUpStatus.alreadyRegistered) {
+                    SnackBarMessage.showSnackBarException(
+                      message: 'The user is already registered.',
+                      context: context,
+                    );
+                  }
+                }),
               ),
               const Spacer(),
               FooterForRegister(constraints: constraints)

@@ -63,7 +63,7 @@ class FooterForLogin extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          context.go(context.namedLocation(AppNameRouter.signUpScreen));
+          context.push(context.namedLocation(AppNameRouter.signUpScreen));
         },
         child: RichText(
             text: TextSpan(children: [
