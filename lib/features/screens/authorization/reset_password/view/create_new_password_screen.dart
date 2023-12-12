@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/config/router/router_name.dart';
-import 'package:movie_app/core/value_objects/email_vo.dart';
 import 'package:movie_app/core/value_objects/password_vo.dart';
 import 'package:movie_app/core/widgets/snack_bar_message.dart';
 import 'package:movie_app/core/widgets/textformfield_password.dart';

@@ -35,8 +35,6 @@ class VerificationResetPasswordScreen extends StatelessWidget {
               },
               onCompleted: (token) {
                 context.read<VerificationResetPasswordCubit>().confirmOtp();
-                context.push(context
-                    .namedLocation(AppNameRouter.createNewPasswordScreen));
               },
             ),
             const Spacer(),
@@ -77,8 +75,8 @@ class VerificationResetPasswordScreen extends StatelessWidget {
                 listener: (BuildContext context,
                     VerificationResetPasswordState state) {
                   if (state.status == VerificationResetPasswordStatus.succes) {
-                    context.go(
-                        context.namedLocation(AppNameRouter.dasboardScreen));
+                    context.push(context
+                        .namedLocation(AppNameRouter.createNewPasswordScreen));
                   } else if (state.status ==
                       VerificationResetPasswordStatus.error) {
                     SnackBarMessage.showSnackBarException(
