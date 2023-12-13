@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router_name.dart';
+import 'package:movie_app/config/router/app_router_name.dart';
 import 'package:movie_app/core/widgets/snack_bar_message.dart';
 import 'package:movie_app/core/widgets/pinput_email.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_verification_reset_password/verification_reset_password_cubit.dart';
@@ -76,7 +76,7 @@ class VerificationResetPasswordScreen extends StatelessWidget {
                     VerificationResetPasswordState state) {
                   if (state.status == VerificationResetPasswordStatus.succes) {
                     context.push(context
-                        .namedLocation(AppNameRouter.createNewPasswordScreen));
+                        .namedLocation(AppNameRouter.createNewPasswordRouteName));
                   } else if (state.status ==
                       VerificationResetPasswordStatus.error) {
                     SnackBarMessage.showSnackBarException(

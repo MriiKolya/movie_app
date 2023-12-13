@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router_name.dart';
+import 'package:movie_app/config/router/app_router_name.dart';
 import 'package:movie_app/core/widgets/auth_by_socialmedia.dart';
 import 'package:movie_app/features/constant/constant.dart';
 
@@ -15,7 +15,7 @@ class FooterForRegister extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            context.go(context.namedLocation(AppNameRouter.loginScreen));
+            context.go(context.namedLocation(AppNameRouter.loginRouteName));
           },
           child: RichText(
               text: TextSpan(children: [

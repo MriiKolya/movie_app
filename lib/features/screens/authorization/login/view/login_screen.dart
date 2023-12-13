@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router_name.dart';
+import 'package:movie_app/config/router/app_router_name.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';
 import 'package:movie_app/core/value_objects/value_objects.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
@@ -42,8 +42,8 @@ class LoginnScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                context.push(
-                    context.namedLocation(AppNameRouter.resetPasswordScreen));
+                context.push(context
+                    .namedLocation(AppNameRouter.resetPasswordRouteName));
               },
               child: Align(
                 alignment: Alignment.centerRight,
@@ -69,7 +69,7 @@ class LoginnScreen extends StatelessWidget {
                       context: context,
                     );
                     context.go(
-                        context.namedLocation(AppNameRouter.dasboardScreen));
+                        context.namedLocation(AppNameRouter.dashboardRouteName));
                   } else if (state.status == LoginStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: 'Wrong email or password',
@@ -79,9 +79,7 @@ class LoginnScreen extends StatelessWidget {
                 },
                 builder: (BuildContext context, LoginState state) {
                   return state.status == LoginStatus.submitting
-                      ? const CircularProgressIndicator(
-                          color: Colors.black,
-                        )
+                      ? const CircularProgressIndicator()
                       : const Text(
                           'Log In',
                         );

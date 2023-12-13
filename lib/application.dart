@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:movie_app/config/router/router.dart';
+import 'package:movie_app/config/router/app_router.dart';
 import 'package:movie_app/config/themes/dart_theme.dart';
 import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';

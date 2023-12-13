@@ -62,10 +62,13 @@ abstract class SnackBarMessage {
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        dismissDirection: DismissDirection.up,
+        behavior: SnackBarBehavior.floating,
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 75),
         elevation: 0,
         backgroundColor: Colors.transparent,
         content: Container(
-          padding: const EdgeInsets.all(16),
+          // padding: const EdgeInsets.all(16),
           height: 80,
           width: double.infinity,
           decoration: const BoxDecoration(

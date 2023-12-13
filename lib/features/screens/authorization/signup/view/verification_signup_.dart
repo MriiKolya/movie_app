@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/export_router.dart';
+import 'package:movie_app/config/router/app_router_name.dart';
 import 'package:movie_app/core/widgets/snack_bar_message.dart';
 import 'package:movie_app/core/widgets/pinput_email.dart';
 import 'package:movie_app/features/screens/authorization/signup/cubit/verification_signup/verification_signup_cubit.dart';
@@ -68,7 +68,7 @@ class VerificationSignUplScreen extends StatelessWidget {
                     (BuildContext context, VerificationSignUpState state) {
                   if (state.status == VerificationStatus.succes) {
                     context.go(
-                        context.namedLocation(AppNameRouter.dasboardScreen));
+                        context.namedLocation(AppNameRouter.dashboardRouteName));
                   } else if (state.status == VerificationStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: 'Incorect code',

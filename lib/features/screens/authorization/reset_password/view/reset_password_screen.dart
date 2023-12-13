@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/export_router.dart';
+import 'package:movie_app/config/router/app_router_name.dart';
 import 'package:movie_app/core/value_objects/value_objects.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_reset_password/reset_password_cubit.dart';
@@ -38,7 +38,7 @@ class ReserPasswordScreen extends StatelessWidget {
                 if (_formKey.currentState!.validate()) {
                   context.read<ResetPasswordCubit>().resetPassword();
                   context.push(context.namedLocation(
-                      AppNameRouter.verificationResetPasswordlScreen));
+                      AppNameRouter.verificationResetPasswordRouteName));
                 }
               },
               child: BlocConsumer<ResetPasswordCubit, ResetPasswordState>(

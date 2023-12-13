@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/config/router/router_name.dart';
+import 'package:movie_app/config/router/app_router_name.dart';
 import 'package:movie_app/core/value_objects/value_objects.dart';
 import 'package:movie_app/core/widgets/widgets.dart';
 import 'package:movie_app/features/screens/authorization/signup/cubit/signup_cubit/signup_cubit.dart';
@@ -63,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                 }, listener: (BuildContext context, SignupState state) {
                   if (state.status == SignUpStatus.succes) {
                     context.push(context.namedLocation(
-                        AppNameRouter.verificationSignUplScreen));
+                        AppNameRouter.verificationSignUpRouteName));
                   } else if (state.status == SignUpStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: ' Something went wrong \n Try again later.',
