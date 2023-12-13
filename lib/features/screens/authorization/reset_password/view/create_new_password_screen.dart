@@ -75,8 +75,8 @@ class CreateNewPasswordScreen extends StatelessWidget {
                         message: 'the password has been successfully changed',
                         context: context,
                       );
-                      context
-                          .go(context.namedLocation(AppNameRouter.loginRouteName));
+                      context.go(
+                          context.namedLocation(RouteConstants.loginRouteName));
                     } else if (state.status == CreateNewPasswordStatus.error) {
                       SnackBarMessage.showSnackBarException(
                         message: 'Something went wrong \n Try again later',

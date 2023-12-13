@@ -34,7 +34,7 @@ class DashboardScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Home'),
       ),
     );

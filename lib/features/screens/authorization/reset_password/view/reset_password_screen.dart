@@ -38,7 +38,7 @@ class ReserPasswordScreen extends StatelessWidget {
                 if (_formKey.currentState!.validate()) {
                   context.read<ResetPasswordCubit>().resetPassword();
                   context.push(context.namedLocation(
-                      AppNameRouter.verificationResetPasswordRouteName));
+                      RouteConstants.verificationResetPasswordRouteName));
                 }
               },
               child: BlocConsumer<ResetPasswordCubit, ResetPasswordState>(

@@ -15,7 +15,7 @@ class FooterForRegister extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            context.go(context.namedLocation(AppNameRouter.loginRouteName));
+            context.go(context.namedLocation(RouteConstants.loginRouteName));
           },
           child: RichText(
               text: TextSpan(children: [

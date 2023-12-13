@@ -68,7 +68,7 @@ class VerificationSignUplScreen extends StatelessWidget {
                     (BuildContext context, VerificationSignUpState state) {
                   if (state.status == VerificationStatus.succes) {
                     context.go(
-                        context.namedLocation(AppNameRouter.dashboardRouteName));
+                        context.namedLocation(RouteConstants.profileRouteName));
                   } else if (state.status == VerificationStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: 'Incorect code',

@@ -10,7 +10,7 @@ appRedirect({
   // Проверка, авторизован ли пользователь
   final bool loggedIn = authBloc.state.status == AppStatus.authenticated;
   // Разрешить навигацию на страницу dashboard только для авторизованных пользователей
-  if (state.matchedLocation == '/dashboard' && !loggedIn) {
+  if (state.matchedLocation == '/profile' && !loggedIn) {
     return '/login';
   }
   // Разрешить навигацию на другие страницы для авторизованных пользователей

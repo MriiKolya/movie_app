@@ -43,7 +43,7 @@ class LoginnScreen extends StatelessWidget {
             TextButton(
               onPressed: () {
                 context.push(context
-                    .namedLocation(AppNameRouter.resetPasswordRouteName));
+                    .namedLocation(RouteConstants.resetPasswordRouteName));
               },
               child: Align(
                 alignment: Alignment.centerRight,
@@ -69,7 +69,7 @@ class LoginnScreen extends StatelessWidget {
                       context: context,
                     );
                     context.go(
-                        context.namedLocation(AppNameRouter.dashboardRouteName));
+                        context.namedLocation(RouteConstants.profileRouteName));
                   } else if (state.status == LoginStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: 'Wrong email or password',

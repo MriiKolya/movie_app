@@ -76,7 +76,7 @@ class VerificationResetPasswordScreen extends StatelessWidget {
                     VerificationResetPasswordState state) {
                   if (state.status == VerificationResetPasswordStatus.succes) {
                     context.push(context
-                        .namedLocation(AppNameRouter.createNewPasswordRouteName));
+                        .namedLocation(RouteConstants.createNewPasswordRouteName));
                   } else if (state.status ==
                       VerificationResetPasswordStatus.error) {
                     SnackBarMessage.showSnackBarException(

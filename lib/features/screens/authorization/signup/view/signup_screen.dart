@@ -63,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
                 }, listener: (BuildContext context, SignupState state) {
                   if (state.status == SignUpStatus.succes) {
                     context.push(context.namedLocation(
-                        AppNameRouter.verificationSignUpRouteName));
+                        RouteConstants.verificationSignUpRouteName));
                   } else if (state.status == SignUpStatus.error) {
                     SnackBarMessage.showSnackBarException(
                       message: ' Something went wrong \n Try again later.',
