@@ -8,39 +8,57 @@ class ListPopularMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PopularityMovieBloc, PopularityMovieState>(
-      builder: (context, state) {
-        if (state.status == PopularityMovieStatus.loading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state.status == PopularityMovieStatus.succes) {
-          return CarouselSlider.builder(
-            options: CarouselOptions(
-              height: MediaQuery.of(context).size.height / 4,
-              viewportFraction: 2 / 4,
-              autoPlay: true,
-            ),
-            itemCount: state.listPopularMovie.length,
-            itemBuilder: (BuildContext context, int index, int realIndex) {
-              return Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade700,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Image.network(
-                    "https://image.tmdb.org/t/p/w500/${state.listPopularMovie[index].posterPath}",
-                  ));
-            },
-          );
-        } else if (state.status == PopularityMovieStatus.error) {
-          print('error');
-        }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Text(
+            'Popular movies',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+        ),
+        BlocBuilder<PopularityMovieBloc, PopularityMovieState>(
+          builder: (context, state) {
+            if (state.status == PopularityMovieStatus.loading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state.status == PopularityMovieStatus.succes) {
+              return CarouselSlider.builder(
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height / 3,
+                  viewportFraction: 0.6,
+                  autoPlay: true,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                ),
+                itemCount: state.listPopularMovie.length,
+                itemBuilder: (BuildContext context, int index, int realIndex) {
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            "https://image.tmdb.org/t/p/w500/${state.listPopularMovie[index].posterPath}",
+                          ),
+                          fit: BoxFit.cover),
+                      color: Colors.grey.shade700,
+                      borderRadius: const BorderRadius.all(Radius.circular(15)),
+                    ),
+                  );
+                },
+              );
+            } else if (state.status == PopularityMovieStatus.error) {
+              print('error');
+            }
 
-        return Container();
-      },
+            return Container();
+          },
+        ),
+      ],
     );
   }
 }
