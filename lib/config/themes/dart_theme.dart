@@ -4,7 +4,7 @@ import 'package:movie_app/features/constant/constant.dart';
 
 ThemeData dartTheme() => ThemeData(
     brightness: Brightness.dark,
-    primaryColor: primaryColor,
+    primaryColor: Constant.primaryColor,
     progressIndicatorTheme:
         const ProgressIndicatorThemeData(color: Colors.black),
     outlinedButtonTheme: const OutlinedButtonThemeData(),
@@ -12,7 +12,7 @@ ThemeData dartTheme() => ThemeData(
       style: TextButton.styleFrom(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: primaryColor,
+          backgroundColor: Constant.primaryColor,
           foregroundColor: Colors.white,
           textStyle:
               GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold),
@@ -22,7 +22,7 @@ ThemeData dartTheme() => ThemeData(
       style: TextButton.styleFrom(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: primaryColor,
+          backgroundColor: Constant.primaryColor,
           foregroundColor: Colors.white,
           textStyle:
               GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.bold),
@@ -47,4 +47,4 @@ ThemeData dartTheme() => ThemeData(
       headlineMedium: GoogleFonts.poppins(
           fontSize: 18, fontWeight: FontWeight.w300, color: Colors.white),
     ),
-    scaffoldBackgroundColor: backgroundColor);
+    scaffoldBackgroundColor: Constant.backgroundColor);

@@ -6,7 +6,7 @@ final defaultPinTheme = PinTheme(
   width: 56,
   height: 56,
   textStyle: const TextStyle(
-      fontSize: 20, color: primaryColor, fontWeight: FontWeight.w600),
+      fontSize: 20, color: Constant.primaryColor, fontWeight: FontWeight.w600),
   decoration: BoxDecoration(
     border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
     borderRadius: BorderRadius.circular(20),
@@ -14,7 +14,7 @@ final defaultPinTheme = PinTheme(
 );
 
 final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-  border: Border.all(color: primaryColor),
+  border: Border.all(color: Constant.primaryColor),
   borderRadius: BorderRadius.circular(8),
 );
 

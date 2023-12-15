@@ -48,7 +48,7 @@ class AppForm extends StatelessWidget {
                                       icon: const Icon(
                                         Icons.arrow_back_ios,
                                         size: 30,
-                                        color: primaryColor,
+                                        color: Constant.primaryColor,
                                       ),
                                       onPressed: () {
                                         GoRouter.of(context).pop();
@@ -80,7 +80,7 @@ class AppForm extends StatelessWidget {
                                           style: Theme.of(context)
                                               .textTheme
                                               .labelMedium
-                                              ?.copyWith(color: primaryColor),
+                                              ?.copyWith(color: Constant.primaryColor),
                                         )
                                       : const SizedBox(),
                                 ],

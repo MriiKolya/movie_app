@@ -9,4 +9,5 @@ class RouteConstants {
   static const String createNewPasswordRouteName = 'create_new_password';
   static const String dashboardName = 'dashboard';
   static const String searchRouteName = 'search';
+  static const String favoriteRouteName = 'favorite';
 }

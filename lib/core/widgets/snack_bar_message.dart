@@ -19,7 +19,7 @@ abstract class SnackBarMessage {
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
                 bottomRight: Radius.circular(30)),
-            color: exceptionColor,
+            color: Constant.exceptionColor,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +76,7 @@ abstract class SnackBarMessage {
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
                 bottomRight: Radius.circular(30)),
-            color: succesColor,
+            color: Constant.succesColor,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

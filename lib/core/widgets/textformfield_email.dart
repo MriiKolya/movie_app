@@ -40,7 +40,7 @@ class TextFormFieldEmail extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.grey.shade300)),
               focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
-                  borderSide: BorderSide(color: primaryColor)),
+                  borderSide: BorderSide(color: Constant.primaryColor)),
               disabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey.shade300)),
             )),

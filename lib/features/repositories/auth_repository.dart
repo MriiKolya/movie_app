@@ -19,7 +19,10 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
           return UserAuth.empty;
         } else {
           return UserAuth(
-              id: event.session!.user.id, email: event.session!.user.email);
+            id: event.session!.user.id,
+            email: event.session!.user.email,
+            name: event.session!.user.userMetadata?['username'],
+          );
         }
       });
 
@@ -49,6 +52,10 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
       data: {'username': name},
     );
   }
+
+  // Future<String> getName() async {
+  //   final data = await _supabase.from('cities').select('name');
+  // }
 
   @override
   Future<void> confirmOtp({
@@ -119,6 +126,8 @@ class AuthRepository extends ChangeNotifier implements IAuthRepository {
 
   @override
   Future<void> onSignWithGoogle() async {
+    // final String web =
+    //     '33432227314-m9ufts20u0qtnvul03gcevi54nukcrc5.apps.googleusercontent.com';
     final GoogleSignIn googleSignIn = GoogleSignIn(
       clientId:
           '33432227314-qdmqk7gtbkgqo2ajbp5o0027mgt7h775.apps.googleusercontent.com',

@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_app/config/router/app_router.dart';
 import 'package:movie_app/config/themes/dart_theme.dart';
-import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
+import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
+import 'package:movie_app/core/blocs/movie_bloc/popularity_movie_bloc/popularity_movie_bloc.dart';
+import 'package:movie_app/features/repositories/movie_repository.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_create_new_password/create_new_password_cubit.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_reset_password/reset_password_cubit.dart';
@@ -42,10 +44,17 @@ class _ApplicationState extends State<Application> {
                 repository: GetIt.I<AuthRepository>(),
                 signupCubit: signupCubit)),
         BlocProvider<VerificationResetPasswordCubit>(
-            create: (context) => VerificationResetPasswordCubit(
-                repository: GetIt.I<AuthRepository>(),
-                resetPasswordCubit: resetPasswordCubit)),
-        BlocProvider(create: (context) => AppBloc(GetIt.I<AuthRepository>()))
+          create: (context) => VerificationResetPasswordCubit(
+              repository: GetIt.I<AuthRepository>(),
+              resetPasswordCubit: resetPasswordCubit),
+        ),
+        BlocProvider(
+          create: (context) => AppBloc(GetIt.I<AuthRepository>()),
+        ),
+        BlocProvider(
+          create: (context) => PopularityMovieBloc(GetIt.I<MovieRepository>())
+            ..add(GetPopularMovie()),
+        )
       ],
       child: Builder(builder: (context) {
         return MaterialApp.router(

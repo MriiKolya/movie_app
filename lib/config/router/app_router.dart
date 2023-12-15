@@ -2,8 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_app/config/router/app_router_redirect.dart';
-import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
-import 'package:movie_app/features/profile/profile_screen.dart';
+import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
+import 'package:movie_app/features/screens/main/favorite/favorite_screen.dart';
+import 'package:movie_app/features/screens/main/profile/profile_screen.dart';
 import 'package:movie_app/features/screens/authorization/login/view/login_screen.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/view/create_new_password_screen.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/view/reset_password_screen.dart';
@@ -11,7 +12,7 @@ import 'package:movie_app/features/screens/authorization/reset_password/view/ver
 import 'package:movie_app/features/screens/authorization/signup/view/signup_screen.dart';
 import 'package:movie_app/features/screens/authorization/signup/view/verification_signup_.dart';
 import 'package:movie_app/features/screens/main/bottom_navigation_screen/view/bottom_navigation_screen.dart';
-import 'package:movie_app/features/screens/main/dashboard/dashboard.dart';
+import 'package:movie_app/features/screens/main/dashboard/view/dashboard_screen.dart';
 import 'package:movie_app/features/screens/main/search/search_screen.dart';
 
 import 'app_router_name.dart';
@@ -27,6 +28,8 @@ class AppRouter {
   final _rootNavigatorDasboard =
       GlobalKey<NavigatorState>(debugLabel: 'shellDasboard');
   final _rootNavigatorSearch =
+      GlobalKey<NavigatorState>(debugLabel: 'shellSearch');
+  final _rootNavigatorfavorite =
       GlobalKey<NavigatorState>(debugLabel: 'shellSearch');
 
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -65,6 +68,19 @@ class AppRouter {
                 name: RouteConstants.searchRouteName,
                 builder: (BuildContext contex, GoRouterState state) =>
                     SearchScreen(
+                  key: state.pageKey,
+                ),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _rootNavigatorfavorite,
+            routes: [
+              GoRoute(
+                path: '/favorite',
+                name: RouteConstants.favoriteRouteName,
+                builder: (BuildContext contex, GoRouterState state) =>
+                    FavoriteScreen(
                   key: state.pageKey,
                 ),
               ),

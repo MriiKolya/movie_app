@@ -26,7 +26,7 @@ class FooterForRegister extends StatelessWidget {
             TextSpan(
                 text: ' Log in',
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: secondPrimaryColor, fontWeight: FontWeight.bold))
+                    color: Constant.secondPrimaryColor, fontWeight: FontWeight.bold))
           ])),
         ),
         Padding(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/core/blocs/bloc/app_bloc.dart';
+import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
 
 appRedirect({
   required BuildContext context,

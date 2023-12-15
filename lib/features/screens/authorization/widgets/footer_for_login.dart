@@ -26,7 +26,7 @@ class FooterForLogin extends StatelessWidget {
                 EdgeInsets.symmetric(horizontal: constraints.maxWidth / 40),
             child: Text('Or Log in with',
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: secondPrimaryColor, fontWeight: FontWeight.bold)),
+                    color: Constant.secondPrimaryColor, fontWeight: FontWeight.bold)),
           ),
           const Expanded(
             child: Divider(
@@ -74,7 +74,7 @@ class FooterForLogin extends StatelessWidget {
           TextSpan(
               text: 'Sign up',
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: secondPrimaryColor, fontWeight: FontWeight.bold))
+                  color: Constant.secondPrimaryColor, fontWeight: FontWeight.bold))
         ])),
       )
     ]);

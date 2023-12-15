@@ -14,7 +14,6 @@ Future<void> main() async {
   );
   GetIt.I.registerLazySingleton(() => MovieRepository(dio: Dio()));
   GetIt.I.registerLazySingleton(() => AuthRepository());
-  // GetIt.I.registerLazySingleton(() => IAuthenticationRepository());
-
+  
   runApp(const Application());
 }

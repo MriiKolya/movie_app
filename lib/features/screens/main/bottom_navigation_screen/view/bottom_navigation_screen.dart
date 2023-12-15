@@ -13,7 +13,7 @@ class BottomNavigationScreen extends StatefulWidget {
 }
 
 class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
-  int selectedIndex = 2;
+  late int selectedIndex = widget.navigationShell.currentIndex;
   void goToBranch(int index) {
     widget.navigationShell.goBranch(
       index,
@@ -26,10 +26,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     return Scaffold(
       bottomNavigationBar: SlidingClippedNavBar(
         inactiveColor: Colors.white,
-        backgroundColor: backgroundColor,
+        backgroundColor: Constant.backgroundColor,
         barItems: [
           BarItem(title: 'Dasboard', icon: Icons.home),
           BarItem(title: 'Search', icon: Icons.search),
+          BarItem(title: 'Favorite', icon: Icons.favorite),
           BarItem(title: 'Profile', icon: Icons.person),
         ],
         selectedIndex: selectedIndex,
@@ -39,7 +40,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           });
           goToBranch(selectedIndex);
         },
-        activeColor: primaryColor,
+        activeColor: Constant.primaryColor,
       ),
       body: Center(child: widget.navigationShell),
     );
