@@ -5,6 +5,7 @@ import 'package:movie_app/config/router/app_router.dart';
 import 'package:movie_app/config/themes/dart_theme.dart';
 import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/popularity_movie_bloc/popularity_movie_bloc.dart';
+import 'package:movie_app/core/blocs/movie_bloc/upcoming_movie_bloc/upcoming_movie_bloc.dart';
 import 'package:movie_app/features/repositories/movie_repository.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';
 import 'package:movie_app/features/screens/authorization/reset_password/cubit/cubit_create_new_password/create_new_password_cubit.dart';
@@ -54,6 +55,10 @@ class _ApplicationState extends State<Application> {
         BlocProvider(
           create: (context) => PopularityMovieBloc(GetIt.I<MovieRepository>())
             ..add(GetPopularMovie()),
+        ),
+        BlocProvider(
+          create: (context) => UpcomingMovieBloc(GetIt.I<MovieRepository>())
+            ..add(GetUpcomingMovie()),
         )
       ],
       child: Builder(builder: (context) {

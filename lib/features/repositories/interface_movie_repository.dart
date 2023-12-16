@@ -1,3 +1,6 @@
+import 'package:movie_app/core/domain/models/movie_models.dart';
+
 abstract class IMovieRepository {
-  Future<void> getPopularityMovie();
+  Future<List<MovieModel>> getPopularityMovie();
+  Future<List<MovieModel>> getUpcomingMovie();
 }

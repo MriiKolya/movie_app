@@ -10,7 +10,7 @@ enum PopularityMovieStatus {
 class PopularityMovieState extends Equatable {
   final PopularityMovieStatus status;
   final String textError;
-  final List<Movie> listPopularMovie;
+  final List<MovieModel> listPopularMovie;
   const PopularityMovieState({
     required this.status,
     required this.textError,
@@ -26,7 +26,7 @@ class PopularityMovieState extends Equatable {
   }
 
   factory PopularityMovieState.succes({
-    required List<Movie> listPopularMovie,
+    required List<MovieModel> listPopularMovie,
   }) {
     return PopularityMovieState(
       listPopularMovie: listPopularMovie,

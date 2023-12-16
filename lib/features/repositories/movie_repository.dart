@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/domain/models/movie_models.dart';
 import 'package:movie_app/features/constant/constant.dart';
-import 'package:movie_app/features/domain/models/movie_model.dart';
 import 'package:movie_app/features/repositories/repositories.dart';
 
 class MovieRepository implements IMovieRepository {
@@ -12,12 +12,28 @@ class MovieRepository implements IMovieRepository {
   }) : _dio = dio;
 
   @override
-  Future<List<Movie>> getPopularityMovie() async {
+  Future<List<MovieModel>> getPopularityMovie() async {
     try {
-      final response = await _dio.get(Constant.urlPopularMoveTMDB);
-      final List<Movie> dataList = (response.data['results'] as List)
-          .map((json) => Movie.fromJson(json))
-          .toList();
+      final response = await _dio.get(Constant.urlPopularMovieTMDB);
+      final List<MovieModel> dataList =
+          (response.data['results'] as List)
+              .map((json) => MovieModel.fromJson(json))
+              .toList();
+      return dataList;
+    } catch (e) {
+      debugPrint(e.toString());
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<MovieModel>> getUpcomingMovie() async {
+    try {
+      final response = await _dio.get(Constant.urlUpcomingMovieTMDB);
+      final List<MovieModel> dataList =
+          (response.data['results'] as List)
+              .map((json) => MovieModel.fromJson(json))
+              .toList();
       return dataList;
     } catch (e) {
       debugPrint(e.toString());

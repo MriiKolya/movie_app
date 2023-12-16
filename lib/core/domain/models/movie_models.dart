@@ -1,16 +1,16 @@
-class Movie {
-  String backdropPath;
-  int id;
-  String originalLanguage;
-  String title;
-  String overview;
-  double popularity;
-  num voteAverage;
-  String releaseDate;
-  String posterPath;
-  num voteCount;
+class MovieModel {
+  String? backdropPath;
+  int? id;
+  String? originalLanguage;
+  String? title;
+  String? overview;
+  double? popularity;
+  num? voteAverage;
+  String? releaseDate;
+  String? posterPath;
+  num? voteCount;
 
-  Movie({
+  MovieModel({
     required this.id,
     required this.originalLanguage,
     required this.title,
@@ -23,8 +23,8 @@ class Movie {
     required this.backdropPath,
   });
 
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
+    return MovieModel(
       id: json['id'],
       originalLanguage: json['original_language'],
       title: json['title'],

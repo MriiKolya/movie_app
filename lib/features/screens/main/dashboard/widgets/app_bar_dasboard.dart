@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/domain/models/user_model.dart';
+import 'package:movie_app/core/domain/models/user_model.dart';
 
 class AppBarDasboard extends StatelessWidget implements PreferredSizeWidget {
   const AppBarDasboard({
@@ -12,6 +12,10 @@ class AppBarDasboard extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.transparent,
+      leadingWidth: 300,
+      elevation: 0,
+      scrolledUnderElevation: 0,
       actions: const [
         Padding(
             padding: EdgeInsets.only(right: 40),
@@ -23,8 +27,6 @@ class AppBarDasboard extends StatelessWidget implements PreferredSizeWidget {
               ],
             )),
       ],
-      backgroundColor: Colors.transparent,
-      leadingWidth: 300,
       leading: Padding(
           padding: const EdgeInsets.only(left: 40),
           child: RichText(

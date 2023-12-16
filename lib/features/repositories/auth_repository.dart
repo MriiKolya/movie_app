@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:movie_app/features/domain/models/user_model.dart';
+import 'package:movie_app/core/domain/models/user_model.dart';
 import 'package:movie_app/features/repositories/interface_auth_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

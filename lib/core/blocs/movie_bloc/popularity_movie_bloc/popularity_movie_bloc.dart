@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/features/domain/models/movie_model.dart';
+import 'package:movie_app/core/domain/models/movie_models.dart';
 import 'package:movie_app/features/repositories/movie_repository.dart';
 
 part 'popularity_movie_event.dart';

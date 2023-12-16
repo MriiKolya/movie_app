@@ -5,6 +5,7 @@ import 'package:movie_app/features/constant/constant.dart';
 ThemeData dartTheme() => ThemeData(
     brightness: Brightness.dark,
     primaryColor: Constant.primaryColor,
+    focusColor: Constant.primaryColor,
     progressIndicatorTheme:
         const ProgressIndicatorThemeData(color: Colors.black),
     outlinedButtonTheme: const OutlinedButtonThemeData(),
