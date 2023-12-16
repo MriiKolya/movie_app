@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/features/constant/constant.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     return Scaffold(
       bottomNavigationBar: SlidingClippedNavBar(
         inactiveColor: Colors.white,
-        backgroundColor: Constant.backgroundColor,
+        backgroundColor: ConstantColor.backgroundColor,
         barItems: [
           BarItem(title: 'Dasboard', icon: Icons.home),
           BarItem(title: 'Search', icon: Icons.search),
@@ -40,7 +40,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           });
           goToBranch(selectedIndex);
         },
-        activeColor: Constant.primaryColor,
+        activeColor: ConstantColor.primaryColor,
       ),
       body: Center(child: widget.navigationShell),
     );

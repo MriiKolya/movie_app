@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/constant/constant.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 import 'package:pinput/pinput.dart';
 
 final defaultPinTheme = PinTheme(
   width: 56,
   height: 56,
   textStyle: const TextStyle(
-      fontSize: 20, color: Constant.primaryColor, fontWeight: FontWeight.w600),
+      fontSize: 20, color: ConstantColor.primaryColor, fontWeight: FontWeight.w600),
   decoration: BoxDecoration(
     border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
     borderRadius: BorderRadius.circular(20),
@@ -14,7 +14,7 @@ final defaultPinTheme = PinTheme(
 );
 
 final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-  border: Border.all(color: Constant.primaryColor),
+  border: Border.all(color: ConstantColor.primaryColor),
   borderRadius: BorderRadius.circular(8),
 );
 

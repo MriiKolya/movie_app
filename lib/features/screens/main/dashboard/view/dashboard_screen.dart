@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
+import 'package:movie_app/features/screens/main/dashboard/widgets/list_genres_movie_widget.dart';
 import 'package:movie_app/features/screens/main/dashboard/widgets/widgets.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -16,8 +17,9 @@ class DashboardScreen extends StatelessWidget {
       body: const SingleChildScrollView(
         child: Column(
           children: [
-            SearchingMovie(),
+            // SearchingMovie(),
             ListPopularMovie(),
+            ListGenreMovie(),
             ListUpcomingMovie(),
           ],
         ),

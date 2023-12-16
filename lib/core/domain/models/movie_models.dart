@@ -37,4 +37,30 @@ class MovieModel {
       backdropPath: json['backdrop_path'],
     );
   }
+
+  MovieModel copyWith({
+    String? backdropPath,
+    int? id,
+    String? originalLanguage,
+    String? title,
+    String? overview,
+    double? popularity,
+    num? voteAverage,
+    String? releaseDate,
+    String? posterPath,
+    num? voteCount,
+  }) {
+    return MovieModel(
+      backdropPath: backdropPath ?? this.backdropPath,
+      id: id ?? this.id,
+      originalLanguage: originalLanguage ?? this.originalLanguage,
+      title: title ?? this.title,
+      overview: overview ?? this.overview,
+      popularity: popularity ?? this.popularity,
+      voteAverage: voteAverage ?? this.voteAverage,
+      releaseDate: releaseDate ?? this.releaseDate,
+      posterPath: posterPath ?? this.posterPath,
+      voteCount: voteCount ?? this.voteCount,
+    );
+  }
 }

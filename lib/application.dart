@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:movie_app/config/router/app_router.dart';
 import 'package:movie_app/config/themes/dart_theme.dart';
 import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
+import 'package:movie_app/core/blocs/movie_bloc/genre_movie_bloc/genres_movie_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/popularity_movie_bloc/popularity_movie_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/upcoming_movie_bloc/upcoming_movie_bloc.dart';
 import 'package:movie_app/features/repositories/movie_repository.dart';
@@ -59,6 +60,11 @@ class _ApplicationState extends State<Application> {
         BlocProvider(
           create: (context) => UpcomingMovieBloc(GetIt.I<MovieRepository>())
             ..add(GetUpcomingMovie()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              GenresMovieBloc(repository: (GetIt.I<MovieRepository>()))
+                ..add(GetGenresMovie()),
         )
       ],
       child: Builder(builder: (context) {

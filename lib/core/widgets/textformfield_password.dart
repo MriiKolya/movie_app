@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/constant/constant.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 
 class TextFormFieldPassword extends StatefulWidget {
   const TextFormFieldPassword({
@@ -58,7 +58,7 @@ class _TextFormFieldPasswordState extends State<TextFormFieldPassword> {
               borderSide: BorderSide(color: Colors.grey.shade300)),
           focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              borderSide: BorderSide(color: Constant.primaryColor)),
+              borderSide: BorderSide(color: ConstantColor.primaryColor)),
           disabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade300)),
         ),

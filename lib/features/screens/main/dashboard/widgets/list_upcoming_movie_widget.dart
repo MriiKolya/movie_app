@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/upcoming_movie_bloc/upcoming_movie_bloc.dart';
-import 'package:movie_app/features/constant/constant.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 import 'package:movie_app/features/screens/main/dashboard/widgets/poster_movie_widget.dart';
 
 class ListUpcomingMovie extends StatelessWidget {
@@ -25,7 +25,7 @@ class ListUpcomingMovie extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .titleMedium
-                    ?.copyWith(color: Constant.primaryColor),
+                    ?.copyWith(color: ConstantColor.primaryColor),
               ),
             ],
           ),
@@ -37,7 +37,7 @@ class ListUpcomingMovie extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 4,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
+                    itemCount: state.listUpcomingMovie.length,
                     itemBuilder: (context, index) {
                       return Padding(
                           padding: const EdgeInsets.all(8.0),

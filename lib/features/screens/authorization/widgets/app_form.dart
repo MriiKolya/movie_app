@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_app/features/constant/constant.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 
 class AppForm extends StatelessWidget {
   AppForm(
@@ -48,7 +48,7 @@ class AppForm extends StatelessWidget {
                                       icon: const Icon(
                                         Icons.arrow_back_ios,
                                         size: 30,
-                                        color: Constant.primaryColor,
+                                        color: ConstantColor.primaryColor,
                                       ),
                                       onPressed: () {
                                         GoRouter.of(context).pop();
@@ -80,7 +80,7 @@ class AppForm extends StatelessWidget {
                                           style: Theme.of(context)
                                               .textTheme
                                               .labelMedium
-                                              ?.copyWith(color: Constant.primaryColor),
+                                              ?.copyWith(color: ConstantColor.primaryColor),
                                         )
                                       : const SizedBox(),
                                 ],

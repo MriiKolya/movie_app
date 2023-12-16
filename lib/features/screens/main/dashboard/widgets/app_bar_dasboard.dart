@@ -21,6 +21,8 @@ class AppBarDasboard extends StatelessWidget implements PreferredSizeWidget {
             padding: EdgeInsets.only(right: 40),
             child: Row(
               children: [
+                Icon(Icons.search),
+                SizedBox(width: 10),
                 Icon(Icons.notifications),
                 SizedBox(width: 10),
                 Icon(Icons.settings),

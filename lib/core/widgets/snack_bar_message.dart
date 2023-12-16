@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/constant/constant.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 
 abstract class SnackBarMessage {
   static void showSnackBarException({
@@ -19,7 +19,7 @@ abstract class SnackBarMessage {
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
                 bottomRight: Radius.circular(30)),
-            color: Constant.exceptionColor,
+            color: ConstantColor.exceptionColor,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +76,7 @@ abstract class SnackBarMessage {
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
                 bottomRight: Radius.circular(30)),
-            color: Constant.succesColor,
+            color: ConstantColor.succesColor,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
