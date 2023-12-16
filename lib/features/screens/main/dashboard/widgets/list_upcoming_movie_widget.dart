@@ -52,7 +52,8 @@ class ListUpcomingMovie extends StatelessWidget {
               );
             } else if (state.status == UpcomingMovieStatus.loading) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                    color: ConstantColor.primaryColor),
               );
             } else if (state.status == UpcomingMovieStatus.error) {
               return const Center(child: Text('opps something went wrong : ('));

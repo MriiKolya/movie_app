@@ -28,7 +28,7 @@ class ListGenreMovie extends StatelessWidget {
               return SizedBox(
                 height: MediaQuery.of(context).size.height / 15,
                 child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.horizontal,P
                     itemCount: state.listGenreMovie.length,
                     itemBuilder: (context, index) {
                       return Padding(
@@ -53,7 +53,8 @@ class ListGenreMovie extends StatelessWidget {
               );
             } else if (state.status == GenreMovieStatus.loading) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                    color: ConstantColor.primaryColor),
               );
             } else if (state.status == GenreMovieStatus.error) {
               return const Center(child: Text('opps something went wrong : ('));

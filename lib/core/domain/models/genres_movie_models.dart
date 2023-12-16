@@ -1,8 +1,10 @@
-class GenresMovieModel {
+import 'package:equatable/equatable.dart';
+
+class GenresMovieModel extends Equatable {
   final int id;
   final String name;
 
-  GenresMovieModel({
+  const GenresMovieModel({
     required this.id,
     required this.name,
   });
@@ -13,4 +15,7 @@ class GenresMovieModel {
       name: json['name'],
     );
   }
+
+  @override
+  List<Object?> get props => [id, name];
 }

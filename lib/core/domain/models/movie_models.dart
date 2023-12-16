@@ -1,4 +1,6 @@
-class MovieModel {
+import 'package:equatable/equatable.dart';
+
+class MovieModel extends Equatable {
   String? backdropPath;
   int? id;
   String? originalLanguage;
@@ -63,4 +65,18 @@ class MovieModel {
       voteCount: voteCount ?? this.voteCount,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        backdropPath,
+        id,
+        originalLanguage,
+        title,
+        overview,
+        popularity,
+        voteAverage,
+        releaseDate,
+        posterPath,
+        voteCount,
+      ];
 }

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/popularity_movie_bloc/popularity_movie_bloc.dart';
+import 'package:movie_app/features/constant/constant_color.dart';
 import 'package:movie_app/features/screens/main/dashboard/widgets/poster_movie_widget.dart';
 
 class ListPopularMovie extends StatelessWidget {
@@ -23,7 +24,9 @@ class ListPopularMovie extends StatelessWidget {
           builder: (context, state) {
             if (state.status == PopularityMovieStatus.loading) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: ConstantColor.primaryColor,
+                ),
               );
             } else if (state.status == PopularityMovieStatus.succes) {
               return CarouselSlider.builder(
