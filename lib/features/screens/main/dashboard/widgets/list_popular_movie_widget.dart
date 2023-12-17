@@ -44,7 +44,7 @@ class ListPopularMovie extends StatelessWidget {
                   return PosterMovie(
                     width: MediaQuery.of(context).size.width,
                     posterImage:
-                        "https://image.tmdb.org/t/p/w500/${state.listPopularMovie[index].posterPath}",
+                        state.listPopularMovie[index].fullImagePosterPath,
                     rateMovie: state.listPopularMovie[index].voteAverage!,
                   );
                 },

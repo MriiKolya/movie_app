@@ -1,18 +1,32 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'movie_models.g.dart';
+
+@JsonSerializable()
 class MovieModel extends Equatable {
-  String? backdropPath;
-  int? id;
-  String? originalLanguage;
-  String? title;
-  String? overview;
-  double? popularity;
-  num? voteAverage;
-  String? releaseDate;
-  String? posterPath;
-  num? voteCount;
+  @JsonKey(name: 'backdrop_path')
+  final String? backdropPath;
+  String get fullImageBackdropPath =>
+      'https://image.tmdb.org/t/p/w500/$backdropPath';
+  final int? id;
+  @JsonKey(name: 'original_language')
+  final String? originalLanguage;
+  final String? title;
+  final String? overview;
+  final double? popularity;
+  @JsonKey(name: 'vote_average')
+  final num? voteAverage;
+  @JsonKey(name: 'release_date')
+  final String? releaseDate;
+  @JsonKey(name: 'poster_path')
+  final String? posterPath;
+  String get fullImagePosterPath =>
+      'https://image.tmdb.org/t/p/w500/$posterPath';
+  @JsonKey(name: 'vote_count')
+  final num? voteCount;
 
-  MovieModel({
+  const MovieModel({
     required this.id,
     required this.originalLanguage,
     required this.title,
@@ -25,32 +39,22 @@ class MovieModel extends Equatable {
     required this.backdropPath,
   });
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) {
-    return MovieModel(
-      id: json['id'],
-      originalLanguage: json['original_language'],
-      title: json['title'],
-      overview: json['overview'],
-      popularity: json['popularity'],
-      voteAverage: json['vote_average'],
-      releaseDate: json['release_date'],
-      posterPath: json['poster_path'],
-      voteCount: json['vote_count'],
-      backdropPath: json['backdrop_path'],
-    );
-  }
+  factory MovieModel.fromJson(Map<String, dynamic> json) =>
+      _$MovieModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MovieModelToJson(this);
 
   MovieModel copyWith({
-    String? backdropPath,
-    int? id,
-    String? originalLanguage,
-    String? title,
-    String? overview,
-    double? popularity,
-    num? voteAverage,
-    String? releaseDate,
-    String? posterPath,
-    num? voteCount,
+    final String? backdropPath,
+    final int? id,
+    final String? originalLanguage,
+    final String? title,
+    final String? overview,
+    final double? popularity,
+    final num? voteAverage,
+    final String? releaseDate,
+    final String? posterPath,
+    final num? voteCount,
   }) {
     return MovieModel(
       backdropPath: backdropPath ?? this.backdropPath,

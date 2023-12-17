@@ -5,7 +5,9 @@ import 'package:movie_app/config/router/app_router.dart';
 import 'package:movie_app/config/themes/dart_theme.dart';
 import 'package:movie_app/core/blocs/app_bloc/app_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/genre_movie_bloc/genres_movie_bloc.dart';
+import 'package:movie_app/core/blocs/movie_bloc/popular_actor_movie_bloc/popular_actor_movie_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/popularity_movie_bloc/popularity_movie_bloc.dart';
+import 'package:movie_app/core/blocs/movie_bloc/top_reted_movie_bloc.dart/top_rated_movie_bloc.dart';
 import 'package:movie_app/core/blocs/movie_bloc/upcoming_movie_bloc/upcoming_movie_bloc.dart';
 import 'package:movie_app/features/repositories/movie_repository.dart';
 import 'package:movie_app/features/screens/authorization/login/cubit/login_cubit.dart';
@@ -65,7 +67,17 @@ class _ApplicationState extends State<Application> {
           create: (context) =>
               GenresMovieBloc(repository: (GetIt.I<MovieRepository>()))
                 ..add(GetGenresMovie()),
-        )
+        ),
+        BlocProvider(
+          create: (context) =>
+              TopRatedMovieBloc(repository: (GetIt.I<MovieRepository>()))
+                ..add(GetTopRatedMovie()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              PopularActorMovieBloc(repository: (GetIt.I<MovieRepository>()))
+                ..add(GetListPopularActorMovie()),
+        ),
       ],
       child: Builder(builder: (context) {
         return MaterialApp.router(

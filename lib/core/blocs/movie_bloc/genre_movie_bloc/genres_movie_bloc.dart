@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/core/domain/models/genres_movie_models.dart';
+import 'package:movie_app/core/domain/models/genres_movie_model.dart';
 import 'package:movie_app/features/repositories/movie_repository.dart';
 
 part 'genres_movie_event.dart';

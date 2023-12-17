@@ -6,4 +6,9 @@ abstract class TMDBUrl {
       'https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey';
   static const String genresMovieUrl =
       'https://api.themoviedb.org/3/genre/movie/list?api_key=$apiKey';
+  static const String topRatedMovieUrl =
+      'https://api.themoviedb.org/3/movie/top_rated?api_key=$apiKey';
+  static const String popularListActorMovieUrl =
+      'https://api.themoviedb.org/3/person/popular?api_key=$apiKey';
+  // static const String httpImage = 'https://image.tmdb.org/t/p/w500/';
 }

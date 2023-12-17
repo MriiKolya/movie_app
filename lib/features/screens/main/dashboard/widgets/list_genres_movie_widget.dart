@@ -28,7 +28,7 @@ class ListGenreMovie extends StatelessWidget {
               return SizedBox(
                 height: MediaQuery.of(context).size.height / 15,
                 child: ListView.builder(
-                    scrollDirection: Axis.horizontal,P
+                    scrollDirection: Axis.horizontal,
                     itemCount: state.listGenreMovie.length,
                     itemBuilder: (context, index) {
                       return Padding(
@@ -39,12 +39,19 @@ class ListGenreMovie extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                               color: ConstantColor.secondBackgroundcolor,
                             ),
-                            child: FittedBox(
-                              child: Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: Text(
-                                  state.listGenreMovie[index].name,
-                                  style: Theme.of(context).textTheme.titleLarge,
+                            child: GestureDetector(
+                              onTap: () {
+                                print(
+                                    state.listGenreMovie[index].id.toString());
+                              },
+                              child: FittedBox(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Text(
+                                    state.listGenreMovie[index].name,
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
+                                  ),
                                 ),
                               ),
                             ),
